@@ -1,1 +1,4 @@
 .idea
+report.*
+!report.pdf
+!report.tex
