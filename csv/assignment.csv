@@ -1,0 +1,78 @@
+id,name,due_date,description,points,class_id
+22CCBupmn1,Midterm,2021-04-28 23:59:00,Midterm exam,100,6S1gC0D99c
+2PbSzqIZKM,Assignment2,2017-09-28 23:59:00,Use stacks to implement a backtracking algorithm to solve N-Queens problem.,100,2wQQ933Qex
+2wQQ933Qex,Assignment2,2021-10-04 23:59:00,Use ArrayList to program a Blackjack game,100,IscGscr2jK
+30bCytC7WE,Homework7,2019-04-25 23:59:00,Develop a PHP application to query the supplier database,100,pGgT9pfY13
+34HpaB4gDt,Homework3,2019-02-26 10:00:000,Formulate relational algebra queries,100,pGgT9pfY13
+594LbuZBRv,Assignment3,2020-04-03 23:59:00,Develop a Java application to browse the music industry database,100,pdUvgmB57W
+5FQ93xco3l,Assignment4,2020-11-14 23:59:00,Formulate MongoDB queries for the Yelp database,100,6S1gC0D99c
+5ggiSZO7x8,Homework8,2019-05-03 0:00:00,Perform 3NF normalization on a database,100,pGgT9pfY13
+6S1gC0D99c,Final Project,2021-12-07 23:59:00,Develop a learning management system using PHP!,200,6S1gC0D99c
+6XlCvM3aaJ,Project4,2020-11-14 23:59:00,Implement several sorting optimization algorithms,100,kuY3dCWqbX
+6g87xRW3rx,Assignment3,2021-04-02 23:59:00,Develop a Java application to browse the music industry database,100,KaDPuRlWHM
+6sEoqvfzYh,Assignment6,2021-12-05 23:59:00,Implement a Binary Search Tree for indexing/searching movies efficiently in IMDB,100,IscGscr2jK
+72ZdKO3gz4,Assignment4,2017-10-20 23:59:00,Implement bubble sort and a non-recursive version of mergesort.,100,2wQQ933Qex
+7fHqljihO1,Assignment2,2021-10-06 23:59:00,Formulate SQL queries for the Yelp Database,100,6S1gC0D99c
+8MV9S7p9Rk,Assignment1,2019-09-20 23:59:00,Use ArrayList to program a Blackjack game,100,OqA6YH2BD6
+8ovYRO0ntq,Midterm,2019-03-21 10:00:00,Midterm for the course,100,pGgT9pfY13
+9tEYU0Tu9v,Assignment1,2021-02-09 23:59:00,Write queries and relational constraints in relational algebra for the 2019 Pan Am Games.,100,KaDPuRlWHM
+B7P3TPNxGs,Final Exam,2019-12-08 8:00:00,Last exam!,100,WbEpvF1Olv
+EFcd2UX7iA,Project1,2020-09-26 0:00:00,Use OOP to implement different types of shapes,100,kuY3dCWqbX
+EbdPHQAUvI,Final Project,2019-12-08 11:59:00,Use a binary search tree to find Twitter Contents,150,OqA6YH2BD6
+FIIDkWRYE8,Final Exam,2020-05-09 10:00:00,Online final exam,120,kuY3dCWqbX
+FWmu610qT1,Assignment4,2019-10-24 23:59:00,Implement bubble sort and a non-recursive version of mergesort.,100,OqA6YH2BD6
+GimIAQoEhe,Assignment3,2021-10-18 23:59:00,Solve the famous Knights Tour problem using a stack,100,IscGscr2jK
+HSiN7nd3n6,Final Project,2017-12-06 11:59:00,Use a binary search tree to find Twitter Contents,150,2wQQ933Qex
+HoRJjBmfkT,Final Exam,2020-05-09 10:00:00,Online final exam,150,pdUvgmB57W
+IscGscr2jK,Midterm,2021-04-15 8:30:00,Online midterm exam,100,KaDPuRlWHM
+JKZMOG2ZPQ,Assignment4,2018-11-01 23:59:00,Implement bubble sort and a non-recursive version of mergesort.,100,WbEpvF1Olv
+JmdWFmOl4h,Final Exam,2019-05-06 8:00:00,Final exam for CS377,100,pGgT9pfY13
+KJCgLOvO49,Assignment3,2019-10-10 23:59:00,Use stacks and queues to solve a maze traversal problem.,100,OqA6YH2BD6
+KaDPuRlWHM,Midterm1,2019-10-25 8:30:00,First midterm of the the course.,60,OqA6YH2BD6
+LUvAvdTuCt,Midterm,2021-10-20 13:00:00,Midterm exam,100,6S1gC0D99c
+MiXZLCwsJK,Assignment2,2021-02-27 23:59:00,Write SQL queries to work with a music industry database.,100,KaDPuRlWHM
+N7X7CTZc0P,Midterm,2021-10-20 13:00:00,Midterm exam,60,IscGscr2jK
+NGEFrY7B4w,Assignment1,2017-09-15 23:59:00,Use ArrayList to program a Blackjack game.,100,2wQQ933Qex
+P6dCuTfhL9,Project3,2020-10-30 23:59:00,Implement an Itunes playlist using a double-ended linked list,100,kuY3dCWqbX
+Pw6oyjre67,Midterm1,2017-10-24 8:30:00,First midterm of the the course.,60,2wQQ933Qex
+Q3QNqMPOqc,Assignment5,2017-11-14 23:59:00,Implement a hash table to count the number of times a word appears in a document.,100,2wQQ933Qex
+Q5deudTxfL,Assignment5,2021-11-24 23:59:00,Implement several sorting optimization algorithms,100,IscGscr2jK
+Qe08sCCtkf,Bonus Quiz,2019-12-08 23:59:00,Solve some algorithm analysis questions,10,OqA6YH2BD6
+T9LtdisnCO,Assignment4,2020-05-02 23:59:00,Database design for the US congress database,100,pdUvgmB57W
+TWi8qY0SEi,Homework4,2019-03-26 23:59:00,Answer some SQL queries on the supplier project database.,100,pGgT9pfY13
+VDD8WsiCtM,Homework1,2019-02-07 10:00:00,Create an ER diagram for the Emory College University Database.,100,pGgT9pfY13
+W2GuP0QCJd,Homework2,2019-02-14 10:00:00,Design a relational data model for various ER models of the university,100,pGgT9pfY13
+WbEpvF1Olv,Homework5,2019-04-04 23:59:00,Answer more advanced queries on the supplier project database.,100,pGgT9pfY13
+YDPr4367oU,Assignment3,2018-10-10 23:59:00,Use stacks and queues to solve a maze traversal problem.,100,WbEpvF1Olv
+ZwnvP30tKQ,Assignment2,2018-09-29 23:59:00,Use stacks to implement a backtracking algorithm to solve N-Queens problem.,100,WbEpvF1Olv
+a8iYRx1Us4,Final Exam,2021-12-15 8:00:00,,200,6S1gC0D99c
+cOgFV4CvSw,Assignment1,2020-02-09 23:59:00,Write queries and relational constraints in relational algebra for the 2019 Pan Am Games.,100,pdUvgmB57W
+dczVfOKe0F,Assignment4,2021-04-28 23:59:00,Database design for the US congress database,100,KaDPuRlWHM
+duOVF9fyPU,Assignment1,2021-09-20 0:00:00,Use OOP to implement different types of shapes,100,IscGscr2jK
+dwT3TQ907Y,Project2,2020-10-15 23:59:00,Solve the famous Knights Tour problem using a stack,100,kuY3dCWqbX
+eMKsSbTaGJ,Assignment5,2019-11-13 23:59:00,Implement a hash table to count the number of times a word appears in a document.,100,OqA6YH2BD6
+f2y5YTLubI,Assignment1,2018-09-13 23:59:00,Use ArrayList to program a Blackjack game.,100,WbEpvF1Olv
+gPT3Xxdacl,Assignment5,2019-11-19 23:59:00,Database design questions.,100,6S1gC0D99c
+gifdeVtRoS,Final Exam,2021-12-15 15:00:00,,100,IscGscr2jK
+hKZxwsUEu4,Assignment5,2018-11-13 23:59:00,Implement a hash table to count the number of times a word appears in a document.,100,WbEpvF1Olv
+hLzOKunYUI,Assignment4,2021-11-04 23:59:00,Implement an Itunes playlist using a double-ended linked list,100,IscGscr2jK
+hcFF1sLv1P,Final Exam,2021-05-06 10:00:00,Online final exam,150,KaDPuRlWHM
+irxkoWsh2w,Final Exam,2017-12-13 10:00:00,Last exam!,100,2wQQ933Qex
+j3UXahLG7u,Midterm,2020-04-15 8:30:00,Online midterm exam,100,pdUvgmB57W
+jqUu7vGArm,Homework6,2019-04-18 23:59:00,Write a JDBC application that can execute a SQL query on a selected database.,100,pGgT9pfY13
+kuY3dCWqbX,Midterm2,2017-11-21 8:30:00,Second midterm of the course,60,2wQQ933Qex
+lz4LQFymve,Assignment3,2017-10-08 23:59:00,Use stacks and queues to solve a maze traversal problem.,100,2wQQ933Qex
+mUGFAhI3md,Midterm2,2018-11-19 8:30:00,Second midterm of the course,60,WbEpvF1Olv
+nIiBGMzaqI,Assignment2,2020-02-29 23:59:00,Write SQL queries to work with a music industry database.,100,pdUvgmB57W
+pGgT9pfY13,Midterm1,2018-10-22 8:30:00,First midterm of the the course.,60,WbEpvF1Olv
+pdUvgmB57W,Assignment2,2019-10-02 23:59:00,Use stacks to implement a backtracking algorithm to solve N-Queens problem.,100,OqA6YH2BD6
+pupQhhRzA0,Assignment4,2021-11-05 23:59:00,Formulate MongoDB queries for the Yelp database,100,6S1gC0D99c
+rArzTQgbq6,Project5,2020-11-29 23:59:00,Implement a Binary Search Tree for indexing/searching movies efficiently in IMDB,100,kuY3dCWqbX
+ropVXdsf0o,Bonus Quiz,2019-12-06 23:59:00,Solve some algorithm analysis questions,10,WbEpvF1Olv
+sGIYBPpSTY,Midterm,2020-10-22 11:30:00,Online midterm for CS171,50,kuY3dCWqbX
+sWo96MatFm,Assignment1,2021-09-22 23:59:00,Write relational algebra queries for two different database schemas.,100,6S1gC0D99c
+tdd2gYuy2Q,Final Exam,2019-12-10 14:00:00,Last exam!,100,OqA6YH2BD6
+w30p16a35Y,Final Project,2018-12-05 11:59:00,Use a binary search tree to find Twitter Contents,150,WbEpvF1Olv
+wBu4IQNg7h,Assignment3,2021-10-18 23:59:00,Formulate advanced SQL queries for the Yelp Database,100,6S1gC0D99c
+wHkLv5EaIv,Midterm2,2019-11-21 8:30:00,Second midterm of the course,60,OqA6YH2BD6
+xzdHpBtowO,Bonus Quiz,2017-12-08 23:59:00,Solve some algorithm analysis questions,10,2wQQ933Qex

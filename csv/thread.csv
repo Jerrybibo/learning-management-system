@@ -1,0 +1,53 @@
+id,post_date,text,poster_id,parent_id
+22CCBupmn1,2020-09-15 11:05:00,IntelliJ is also another useful IDE,ECk9NPOnC1,8ovYRO0ntq
+2wQQ933Qex,2020-11-12 14:10:57,You may want to explore different shuffle variants that are found on Wikipedia.,JulFHBBgP9,KaDPuRlWHM
+3efAf6Lx9s,2021-03-29 9:35:48,Hanna is correct. SQL first executes the FROM; then WHERE; before finally performing the GROUP BY clause,A1Kcf8Z1u3,pGgT9pfY13
+5FQ93xco3l,2021-09-05 13:35:00,The relational schema is the structure and design of the relation such as the attribute list. The relation state is like the table content at any given moment.,ize3lkeNiR,dczVfOKe0F
+6S1gC0D99c,2021-04-10 17:01:15,Have you tried reloading the page or clearing your cache?,Rjuqf7P3nX,mUGFAhI3md
+6XlCvM3aaJ,2021-09-05 20:45:00,Yes Elaine is correct in this response.,WJrWAidLZ5,IscGscr2jK
+6g87xRW3rx,2021-10-15 23:59:00,The spreadsheet is under the Assignment2 folder.,tmt3aPs20s,ZwnvP30tKQ
+6sEoqvfzYh,2021-10-15 20:02:00,Sorry about the mistake the correct question items were posted now.,A1Kcf8Z1u3,ZwnvP30tKQ
+7fHqljihO1,2021-10-16 0:11:00,Thanks Nikhil!,A3mMrNEFsy,ZwnvP30tKQ
+8MV9S7p9Rk,2021-10-15 13:32:00,The numbers seem to be incorrect and it seems the points were posted?,ize3lkeNiR,ZwnvP30tKQ
+8ovYRO0ntq,2021-10-01 23:22:00,The general rule of thumb is that the Ace will take on the value of whatever will help the holder the most,RxNqRHaaoI,FWmu610qT1
+FIIDkWRYE8,2020-10-13 22:55:38,As long as its within reasonable time frames you will not be deducted points.,ECk9NPOnC1,9tEYU0Tu9v
+FWmu610qT1,2021-04-26 8:11:00,Why is database normalization important?,qjAClhRo8T,6sEoqvfzYh
+GimIAQoEhe,2021-04-17 16:11:00,Try cloud.google.com,QVsfnLS8nP,NGEFrY7B4w
+HNWLLVmnm4,2020-04-01 11:05:43,Do I need to sanitize the user input?,tmt3aPs20s,OqA6YH2BD6
+HSiN7nd3n6,2021-04-25 13:39:00,Please submit a regrade request via email to me with the email header [CS377],JulFHBBgP9,W2GuP0QCJd
+IscGscr2jK,2021-10-25 18:21:52,Not sure which part you are asking but if its whether Beaverton only exists in OR then no.,,T9LtdisnCO
+KJCgLOvO49,2021-04-09 20:26:00,Everything up until today's lecture can be included as material on the exam,JulFHBBgP9,duOVF9fyPU
+LUvAvdTuCt,2021-10-14 17:11:00,Take advantage of what the method move() returns. It is true in certain situations and false in others. You can then push depending on the value.,YXCMIivcy6,Q5deudTxfL
+Nxw40AvB3w,2020-04-01 14:15:38,You can assume that we will be reasonable users and not try to hack your system.,JulFHBBgP9,OqA6YH2BD6
+OqA6YH2BD6,2021-03-21 10:59:00,Use homebrew to install Postgres on Mac and Linux. Download the windows installer to install on Windows.,A1Kcf8Z1u3,pdUvgmB57W
+P6dCuTfhL9,2021-03-29 4:47:00,I think it does matter. I must be after the WHERE clause and before the HAVING; LIMIT; and ORDER BY,OhfDW5FQet,pGgT9pfY13
+Pw6oyjre67,2021-10-15 23:32:00,Where can we find the spreadsheet?,A3mMrNEFsy,ZwnvP30tKQ
+Qe08sCCtkf,2020-04-10 14:49:08,Yes they have been uploaded onto Canvas.,JulFHBBgP9,j3UXahLG7u
+T9LtdisnCO,2021-10-01 20:23:00,I think there's no specific rule in Blackjack for when an ace is counted as a 1 or an 11. I assumed we have to keep track of the total score in both cases: when the ace is a 1 and when the ace is an 11.,wUSNkrt2i7,FWmu610qT1
+TWi8qY0SEi,2021-10-09 10:24:00,You can assume that each city has a distance name so you would consider Atlanta GA to be the same name as Atlanta FL,A1Kcf8Z1u3,T9LtdisnCO
+W2GuP0QCJd,2020-10-28 5:19:00,You may want to verify that you are appropriately updating your variables. Try using System.out.println.,ECk9NPOnC1,6S1gC0D99c
+WbEpvF1Olv,2021-10-01 17:41:00,I believe just choosing a random card from the deck to deal out cards is enough.,qBhsb9AT1D,wBu4IQNg7h
+ZwnvP30tKQ,2021-10-15 5:19:00,The move method checks if a move is legal for you. You should use this method to change the behavior of your code based on whether or not it returns true or false.,RwKSObZt8b,Q5deudTxfL
+a8iYRx1Us4,2021-10-03 4:32:00,Should we consider the situation when the deck is running out of cards?,YXCMIivcy6,wBu4IQNg7h
+cOgFV4CvSw,2020-05-02 05:37:31,No there won't be any solutions for the sample final problems.,JulFHBBgP9,LUvAvdTuCt
+dczVfOKe0F,2020-02-28 07:41:13,Please try using the GCP instance to avoid having to implement your local copy.,JulFHBBgP9,WbEpvF1Olv
+duOVF9fyPU,2021-10-16 12:01:00,Resubmissions with the same filename on Canvas will automatically add a -1 etc to the files. The student answer is correct in that you will not be penalized for this.,QVsfnLS8nP,dwT3TQ907Y
+dwT3TQ907Y,2021-10-16 6:23:00,You can use temporal relations (see WITH and FROM) to do this rather than create temporary tables,PiQvBSPut9,HSiN7nd3n6
+eMKsSbTaGJ,2020-09-15 8:23:00,Have you tried Eclipse? It's the best!,RwKSObZt8b,8ovYRO0ntq
+gPT3Xxdacl,2021-10-16 10:04:00,This actually happened to me as well on the previous assignment. I was told that I wouldn't be penalized so I think you'll be fine,qBhsb9AT1D,dwT3TQ907Y
+hKZxwsUEu4,2021-10-03 8:47:00,Yes your application should gracefully handle this situation.,cp5asEx6KR,wBu4IQNg7h
+irxkoWsh2w,2021-02-04 7:05:00,I think the bowtie means natural join,v9ksRoAENe,GimIAQoEhe
+j3UXahLG7u,2021-10-25 13:45:00,Does this apply for Q9 as well?,Xo3aGKAsfE,T9LtdisnCO
+jqUu7vGArm,2020-09-15 11:55:00,Microsoft Visual Studio has a student developer pack as well.,JulFHBBgP9,8ovYRO0ntq
+lz4LQFymve,2021-05-01 5:48:00,Everything covered in the class can appear on the final exam,JulFHBBgP9,sGIYBPpSTY
+mUGFAhI3md,2021-04-26 7:35:00,2NF looks at partial functional dependency while 3NF ensures no non-prime attribute functionally determines another non-prime attribute,JulFHBBgP9,6sEoqvfzYh
+nIiBGMzaqI,2020-11-28 09:18:42,You may want to rewatch the lecture 23 and reread the slides to see how this is solved for the general case.,JulFHBBgP9,6XlCvM3aaJ
+pGgT9pfY13,2020-04-01 02:35:22,No it doesn't matter so long as it can functionally browse the database.,fC8CoZyN8g,OqA6YH2BD6
+pdUvgmB57W,2021-04-26 12:41:00,Database normalization is important because it's a rite of passage into the database community,Rjuqf7P3nX,6sEoqvfzYh
+pupQhhRzA0,2020-09-15 11:04:00,What about Netbeans? It was originally part of the JDK.,AnRRwDoMFm,8ovYRO0ntq
+rArzTQgbq6,2021-10-01 18:51:00,As long as there is some point of randomness that is involved it will be sufficient.,A1Kcf8Z1u3,wBu4IQNg7h
+ropVXdsf0o,2020-09-15 8:01:00,I like Sublime Text Editor and using the command line to compile,RxNqRHaaoI,8ovYRO0ntq
+sGIYBPpSTY,2021-10-31 20:01:00,Exceptions stop execution,wUSNkrt2i7,nIiBGMzaqI
+sWo96MatFm,2020-04-02 19:47:34,I believe we should be using JDK 8.0,WJrWAidLZ5,7fHqljihO1
+w30p16a35Y,2021-09-05 15:45:00,You can draw an analogy between the relational schema and classes in Java. Then you can think of relation state as the objects that are defined at that particular time.,A1Kcf8Z1u3,dczVfOKe0F
+wHkLv5EaIv,2021-09-05 16:35:00,I think we are trying to list out the last name of the athletes that are in countries that neither have competed yet or none of their athletes have ranked in the top 3 so far.,ize3lkeNiR,IscGscr2jK
