@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -12,8 +13,95 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body class="d-flex justify-content-center">
-<div class="container m-4">
-    <?php ?>
+<div class="container m-4 justify-content-center text-center">
+    <h2>Welcome back,
+    <?php
+        include 'helpers.php';
+        # Connect to DB
+        $sql_conn = connect('jerry.games', 'cs377', 'ma9BcF@Y', 'canvas_db');
+        # Fetch the user id from _SESSION
+        $id = $_SESSION['id'];
+        # Get the full name
+        $name_query = "SELECT fname, lname FROM user WHERE id = '$id';";
+        $result = query($sql_conn, $name_query);
+        $result_arr = mysqli_fetch_all($result);
+        $name = $result_arr[0];
+        # Reset sessions courses
+        $_SESSION['courses'] = [];
+        # Get courses that the user is taking (as a student)
+        $taking_courses_query = "SELECT c.id, c.course_no, c.course_name, c.year, c.semester FROM user u, takes t, class c
+        WHERE u.id = t.user_id AND t.class_id = c.id AND u.id = '$id';";
+        $result = query($sql_conn, $taking_courses_query);
+        $taking_courses = mysqli_fetch_all($result);
+        # Grab course IDs for Q&A corner
+        foreach ($taking_courses as $index => $course) {
+            $_SESSION['courses'][] = $course[0];
+        }
+        # ... Teaching as professor
+        $teaching_courses_query = "SELECT c.id, c.course_no, c.course_name, c.year, c.semester FROM user u, class c WHERE u.id = c.lecturer_id AND u.id = '$id';";
+        $result = query($sql_conn, $teaching_courses_query);
+        $teaching_courses = mysqli_fetch_all($result);
+        foreach ($teaching_courses as $index => $course) {
+            $_SESSION['courses'][] = $course[0];
+        }
+        # ... Assisting as TA
+        $assisting_courses_query = "SELECT c.id, c.course_no, c.course_name, c.year, c.semester FROM user u, assists a, class c
+        WHERE u.id = a.user_id AND a.class_id = c.id AND u.id = '$id';";
+        $result = query($sql_conn, $assisting_courses_query);
+        $assisting_courses = mysqli_fetch_all($result);
+        foreach ($assisting_courses as $index => $course) {
+            $_SESSION['courses'][] = $course[0];
+        }
+        # Free result and terminate SQL connection because we don't need more information
+        mysqli_free_result($result);
+        disconnect($sql_conn);
+        # Finish up the header
+        echo $name[0] . '!</h2><br>';
+        $total_courses_count = count($taking_courses) + count($teaching_courses) + count($assisting_courses);
+        # If there are classes that the user is taking, then display
+        if (count($taking_courses) > 0) {
+            echo '<table class="table table-bordered" style="text-align:center; width:auto; float:left; margin:20px">
+            <thead><tr><th colspan="6">Classes You\'re Taking</th></tr></thead>
+            <tbody>';
+            foreach ($taking_courses as $i => $course) {
+                echo "<tr>";
+                foreach ($course as $j => $v) {
+                    echo "<td>$v</td>";
+                }
+                echo "<td>Student</td></tr>";
+            }
+            echo '</tbody></table>';
+        }
+        # If there are classes that the user is teaching, then display
+        if (count($teaching_courses) + count($assisting_courses) > 0) {
+            echo '<table class="table table-bordered" style="text-align:center; width:auto; float:left; margin:20px">
+            <thead><tr><th colspan="6">Classes You\'re Teaching</th></tr></thead>
+            <tbody>';
+            foreach ($teaching_courses as $i => $course) {
+                echo "<tr>";
+                foreach ($course as $j => $v) {
+                    echo "<td>$v</td>";
+                }
+                echo "<td>Professor</td></tr>";
+            }
+            foreach ($assisting_courses as $i => $course) {
+                echo "<tr>";
+                foreach ($course as $j => $v) {
+                    echo "<td>$v</td>";
+                }
+                echo "<td>TA</td></tr>";
+            }
+            echo '</tbody></table><br>';
+        }
+        # If we encounter someone who just doesn't like school
+        if ($total_courses_count == 0) {
+            echo '<p>You\'re not enrolled in any classes! If this is unexpected, contact an administrator.</p>';
+        }
+    ?>
+        <!--Redirect to Q&A page-->
+        <p><input type="button" value="Q&A Corner" id="qa_link_button" onClick="document.location.href='qa_posts.php'" /></p>
+        <!--Log out-->
+        <p><input type="button" value="Log Out" id="logout_button" onClick="document.location.href='logout.php'" /></p>
 </div>
 </body>
 </html>
