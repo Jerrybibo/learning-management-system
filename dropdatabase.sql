@@ -1,0 +1,11 @@
+use canvas_db;
+DROP TABLE IF EXISTS `assists`;
+DROP TABLE IF EXISTS `completes`;
+DROP TABLE IF EXISTS `takes`;
+DROP TABLE IF EXISTS `tags`;
+DROP TABLE IF EXISTS `thread`;
+DROP TABLE IF EXISTS `qapost`;
+DROP TABLE IF EXISTS `assignment`;
+DROP TABLE IF EXISTS `class`;
+DROP TABLE IF EXISTS `user`;
+DROP DATABASE `canvas_db`;
