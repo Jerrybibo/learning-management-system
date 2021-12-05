@@ -16,6 +16,13 @@
 <div class="container m-4 justify-content-center text-center">
     <h2>Welcome back,
     <?php
+        if (!empty($_POST)) {
+            $_SESSION['selected_course'] = $_POST['selected_course'];
+            $_SESSION['role'] = $_POST['role'];
+            unset($_POST);
+            header("Location: view_course.php");
+            exit();
+        }
         include 'helpers.php';
         # Connect to DB
         $sql_conn = connect('jerry.games', 'cs377', 'ma9BcF@Y', 'canvas_db');
@@ -64,7 +71,12 @@
             <thead><tr><th colspan="6">Classes You\'re Taking</th></tr></thead>
             <tbody>';
             foreach ($taking_courses as $i => $course) {
-                echo "<tr>";
+                echo "<tr><td><form action='' method='post'>
+                          <input type='hidden' name='selected_course' value='$course[0]'/>
+                          <input type='hidden' name='role' value='student'/>
+                          <input type='submit' value='Visit Class as Student'/>
+                      </form></td>";
+                $course = array_slice($course, 1);
                 foreach ($course as $j => $v) {
                     echo "<td>$v</td>";
                 }
@@ -78,14 +90,24 @@
             <thead><tr><th colspan="6">Classes You\'re Teaching</th></tr></thead>
             <tbody>';
             foreach ($teaching_courses as $i => $course) {
-                echo "<tr>";
+                echo "<tr><td><form action='' method='post'>
+                          <input type='hidden' name='selected_course' value='$course[0]'/>
+                          <input type='hidden' name='role' value='instructor'/>
+                          <input type='submit' value='Visit Class as Instructor'/>
+                      </form></td>";
+                $course = array_slice($course, 1);
                 foreach ($course as $j => $v) {
                     echo "<td>$v</td>";
                 }
                 echo "<td>Professor</td></tr>";
             }
             foreach ($assisting_courses as $i => $course) {
-                echo "<tr>";
+                echo "<tr><td><form action='' method='post'>
+                          <input type='hidden' name='selected_course' value='$course[0]'/>
+                          <input type='hidden' name='role' value='instructor'/>
+                          <input type='submit' value='Visit Class as Instructor'/>
+                      </form></td>";
+                $course = array_slice($course, 1);
                 foreach ($course as $j => $v) {
                     echo "<td>$v</td>";
                 }

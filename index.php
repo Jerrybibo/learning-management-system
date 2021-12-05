@@ -43,6 +43,7 @@
                 disconnect($sql_conn);
                 $_SESSION['id'] = $id;
                 $_SESSION['authenticated'] = true;
+                unset($_POST);
                 echo '<td><tr>Authenticated. Welcome.</tr></td>';
                 header("Location: home.php");
                 exit();

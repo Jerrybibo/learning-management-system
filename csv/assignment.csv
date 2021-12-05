@@ -1,11 +1,9 @@
 id,name,due_date,description,points,class_id
-22CCBupmn1,Midterm,2021-04-28 23:59:00,Midterm exam,100,6S1gC0D99c
 2PbSzqIZKM,Assignment2,2017-09-28 23:59:00,Use stacks to implement a backtracking algorithm to solve N-Queens problem.,100,2wQQ933Qex
 2wQQ933Qex,Assignment2,2021-10-04 23:59:00,Use ArrayList to program a Blackjack game,100,IscGscr2jK
 30bCytC7WE,Homework7,2019-04-25 23:59:00,Develop a PHP application to query the supplier database,100,pGgT9pfY13
 34HpaB4gDt,Homework3,2019-02-26 10:00:000,Formulate relational algebra queries,100,pGgT9pfY13
 594LbuZBRv,Assignment3,2020-04-03 23:59:00,Develop a Java application to browse the music industry database,100,pdUvgmB57W
-5FQ93xco3l,Assignment4,2020-11-14 23:59:00,Formulate MongoDB queries for the Yelp database,100,6S1gC0D99c
 5ggiSZO7x8,Homework8,2019-05-03 0:00:00,Perform 3NF normalization on a database,100,pGgT9pfY13
 6S1gC0D99c,Final Project,2021-12-07 23:59:00,Develop a learning management system using PHP!,200,6S1gC0D99c
 6XlCvM3aaJ,Project4,2020-11-14 23:59:00,Implement several sorting optimization algorithms,100,kuY3dCWqbX
@@ -52,7 +50,7 @@ duOVF9fyPU,Assignment1,2021-09-20 0:00:00,Use OOP to implement different types o
 dwT3TQ907Y,Project2,2020-10-15 23:59:00,Solve the famous Knights Tour problem using a stack,100,kuY3dCWqbX
 eMKsSbTaGJ,Assignment5,2019-11-13 23:59:00,Implement a hash table to count the number of times a word appears in a document.,100,OqA6YH2BD6
 f2y5YTLubI,Assignment1,2018-09-13 23:59:00,Use ArrayList to program a Blackjack game.,100,WbEpvF1Olv
-gPT3Xxdacl,Assignment5,2019-11-19 23:59:00,Database design questions.,100,6S1gC0D99c
+gPT3Xxdacl,Assignment5,2021-11-19 23:59:00,Database design questions.,100,6S1gC0D99c
 gifdeVtRoS,Final Exam,2021-12-15 15:00:00,,100,IscGscr2jK
 hKZxwsUEu4,Assignment5,2018-11-13 23:59:00,Implement a hash table to count the number of times a word appears in a document.,100,WbEpvF1Olv
 hLzOKunYUI,Assignment4,2021-11-04 23:59:00,Implement an Itunes playlist using a double-ended linked list,100,IscGscr2jK

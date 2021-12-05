@@ -1,6 +1,7 @@
 \documentclass{paper}
 
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes, ellipsis}
 \usepackage[margin=3cm]{geometry}
@@ -68,7 +69,122 @@
 	With the satisfaction of 3NF conditions, the normalization of the database is considered complete.
 	
 	\section{Data Description}
-	All of the \verb|.csv| files are generated using the \verb|extract.py| script on the data source files \verb|canvas.csv| and \verb|qa.csv|.
+	All of the \verb|.csv| files are generated using the \verb|extract.py| script and some further manual tweaking on the data source files \verb|canvas.csv| and \verb|qa.csv|.
+	\begin{center}
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table user}} \\
+			\multicolumn{3}{c}{Defines all existing users in Canvas.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			\verb|id| & \verb|CHAR(10)| & Personal ID for the user. (PK)\\
+			\verb|net_id| & \verb|VARCHAR(64)| & NetID used for login. \\
+			\verb|fname| & \verb|TINYTEXT| & First name of the user. \\
+			\verb|lname| & \verb|TINYTEXT| & Last name of the user. \\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+	
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table class}} \\
+			\multicolumn{3}{c}{Defines all classes that exists in Canvas.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			\verb|id| & \verb|CHAR(10)| & Unique identifier for the class. (PK)\\
+			\verb|course_no| & \verb|VARCHAR(8)| & Course number (e.g., CS377) for the class.\\
+			\verb|course_name| & \verb|TINYTEXT| & Course name (e.g., Database Systems) for the class.\\
+			\verb|semester| & \verb|VARCHAR(6)| & Semester the course is offered in.\\
+			\verb|year| & \verb|INT| & Year the course is offered in.\\
+			\verb|lecturer_id| & \verb|CHAR(10)| & The personal ID for the teaching professor. (FK$\to$user.id)\\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table assignment}} \\
+			\multicolumn{3}{c}{Defines all assignments that exists in Canvas.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			\verb|id| & \verb|CHAR(10)| & Unique identifier for the assignment. (PK)\\
+			\verb|name| & \verb|VARCHAR(64)| & Name of the assignment.\\
+			\verb|due_date| & \verb|TIMESTAMP| & Due date of the assignment.\\
+			\verb|description| & \verb|TEXT| & Detailed description of the assignment.\\
+			\verb|points| & \verb|INT| & Maximum amount of points achievable.\\
+			\verb|class_id| & \verb|CHAR(10)| & The class ID that this assignment belongs to. (FK$\to$class.id)\\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+		
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table qapost}} \\
+			\multicolumn{3}{c}{Defines all Q\&A posts that exists in the Q\&A Corner.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			\verb|id| & \verb|CHAR(10)| & Unique identifier for the Q\&A post. (PK)\\
+			\verb|title| & \verb|TINYTEXT| & The title of the Q\&A post. \\
+			\verb|post_date| & \verb|TIMESTAMP| & The date when this Q\&A post was posted. \\
+			\verb|text| & \verb|TEXT| & The body of the Q\&A post. \\
+			\verb|poster_id| & \verb|CHAR(10)| & The personal ID of the poster. (FK$\to$user.id) \\
+			\verb|class_id| & \verb|CHAR(10)| & The class ID that this Q\&A post belongs to. (FK$\to$class.id) \\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+			
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table thread}} \\
+			\multicolumn{3}{c}{Defines all non-parent posts in the Q\&A Corner.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			\verb|id| & \verb|CHAR(10)| & Unique identifier for the thread post. (PK) \\
+			\verb|post_date| & \verb|TIMESTAMP| & The date when this thread post was posted.\\
+			\verb|text| & \verb|TEXT| & The body of the thread post.\\
+			\verb|poster_id| & \verb|CHAR(10)| & The personal ID of the poster. (FK$\to$user.id)\\
+			\verb|parent_id| & \verb|CHAR(10)| & The Q\&A post ID that this thread post belongs to.\\
+			& & (FK$\to$qapost.id)\\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+			
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table tags}} \\
+			\multicolumn{3}{c}{Defines all tags associated with posts in the Q\&A Corner.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			\verb|| & \verb|| &  \\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+			
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table takes}} \\
+			\multicolumn{3}{c}{Defines all student-taking-class relationships, and their letter grades in Canvas.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			&  &  \\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+			
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table completes}} \\
+			\multicolumn{3}{c}{Defines all student-completing-assignment relationships, and their numeric grades in Canvas.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			&  &  \\
+			\bottomrule
+		\end{tabular}\vspace{1.5em}
+	
+		\begin{tabular}{c | c | l}
+			\toprule
+			\multicolumn{3}{c}{\textbf{Table assists}} \\
+			\multicolumn{3}{c}{Defines all TA-assists-class relationships.}\\
+			\midrule
+			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
+			&  &  \\
+			\bottomrule
+		\end{tabular}
+
+	\end{center}
 	
 	\section{PHP File Directory}
 	

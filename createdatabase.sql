@@ -18,13 +18,15 @@ create unique index user_net_id_uindex
 # Create class table
 create table class (
     id          CHAR(10)   not null,
-    course_no   CHAR(8)    not null,
+    course_no   VARCHAR(8) not null,
     course_name TINYTEXT   not null,
     semester    VARCHAR(6) not null,
     year        INT        not null,
     lecturer_id CHAR(10)   not null,
     constraint class_pk
-        primary key (id)
+        primary key (id),
+    constraint class_user_fk
+        foreign key (lecturer_id) references user (id)
 );
 
 # Create assignment table
@@ -36,7 +38,9 @@ create table assignment (
     points      INT         not null,
     class_id    CHAR(10)    not null,
     constraint assignment_pk
-        primary key (id)
+        primary key (id),
+    constraint assignment_class_fk
+        foreign key (class_id) references class (id)
 );
 
 # Create qapost table
