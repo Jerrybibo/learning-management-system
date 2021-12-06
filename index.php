@@ -28,8 +28,11 @@
                     <tr><td><label for="login_id">Personal ID:&nbsp;&nbsp;</label><input name="login_id" id="login_id" type="text"></td></tr>
                     <tr><td><label for="net_id">NetID:&nbsp;&nbsp;</label><input name="net_id" id="net_id" type="text"></td></tr>
                     <tr><td><input type="submit" value="Login" /></td></tr>';
-        $_SESSION['id'] = '';
-        $_SESSION['authenticated'] = false;
+        # Redirect to home.php if the user is already authenticated
+        if (isset($_SESSION['authenticated'])) {
+            header("Location: home.php");
+            exit();
+        }
         if (!empty($_POST)) {
             $sql_conn = connect('jerry.games', 'cs377', 'ma9BcF@Y', 'canvas_db');
             $id = $_POST['login_id'];

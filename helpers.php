@@ -20,3 +20,7 @@ function query($conn_obj, $query) {
 function take_first($arr) {
     return $arr[0];
 }
+function gen_id() {
+    $alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    return substr(str_shuffle($alphanumeric),0, 10);
+}

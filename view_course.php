@@ -15,7 +15,6 @@
 <body class="d-flex justify-content-center">
 <div class="container">
     <?php
-        ini_set("log_errors", 1);
         $user_id = $_SESSION['id'];
         $course_id = $_SESSION['selected_course'];
         $role = $_SESSION['role'];
@@ -30,11 +29,11 @@
             if (strcmp($_POST['operation'], "update_assignment_grade") == 0) {
                 $update_a_grade_query = "INSERT INTO completes(user_id, assignment_id, grade) VALUES('$_POST[selected_student]', '$_POST[selected_assignment]', '$_POST[updated_value] ')
                                          ON DUPLICATE KEY UPDATE grade = '$_POST[updated_value] ', user_id = '$_POST[selected_student]', assignment_id = '$_POST[selected_assignment]';";
-                $result = query($sql_conn, $update_a_grade_query);
+                query($sql_conn, $update_a_grade_query);
             } else if (strcmp($_POST['operation'], "update_final_grade") == 0) {
                 $update_f_grade_query = "INSERT INTO takes(user_id, class_id, letter_grade) VALUES('$_POST[selected_student]', '$course_id', '$_POST[updated_value] ')
                                          ON DUPLICATE KEY UPDATE letter_grade = '$_POST[updated_value] ', user_id = '$_POST[selected_student]', class_id = '$course_id';";
-                $result = query($sql_conn, $update_f_grade_query);
+                query($sql_conn, $update_f_grade_query);
             }
             disconnect($sql_conn);
             unset($_POST);
@@ -82,6 +81,7 @@
             $students_query = "SELECT u.id, u.fname, u.lname, u.net_id FROM user u, takes t WHERE u.id = t.user_id AND t.class_id = '$course_id';";
             $result = query($sql_conn, $students_query);
             $students = mysqli_fetch_all($result);
+            $_SESSION['students_id'] = array_map('take_first', $students);
             $assignments_id = array_map('take_first', $assignments);
             echo "<h2>$course_info[0] $course_info[1]<br>
                   <small class='text-muted'>$course_info[2] $course_info[3]</small></h2>";
