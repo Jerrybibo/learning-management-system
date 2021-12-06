@@ -2,6 +2,7 @@
 
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes, ellipsis}
 \usepackage[margin=3cm]{geometry}
@@ -17,10 +18,11 @@
 	
 	\maketitle
 	
+	\tableofcontents
 	
 	\section{Introduction}
 	
-	Amazing, introductory ideas that provide unique insight into your field of interest and ``wows" your professor---formatted based on Kate L. Turabian's \emph{A Manual for Writers of Research Papers, Theses, and Dissertations} (9th edition).
+	This document contains information pertaining to the final project and its structure, usage notes, and other important annotations.
 	
 	\section{ER Design}
 	
@@ -28,11 +30,12 @@
 	\begin{itemize}
 		\item A class must contain at least one student.
 		\item A class can only be taught by one professor.
-		\item A thread does not contain ``reply-to-posts'', i.e., threads will organized only by chronological order
+		\item A thread does not contain ``reply-to-posts'', i.e., threads are only organized chronologically
 	\end{itemize}
-	The entity-relation design diagram is as follows:\\
-	\includegraphics[scale=0.2]{er_diagram.png}
-
+	The entity-relation design diagram is as follows:
+	\begin{center}
+		\includegraphics[scale=0.131]{er_diagram.png}
+	\end{center}
 	
 	\section{Relational Model Creation}
 	
@@ -69,7 +72,8 @@
 	With the satisfaction of 3NF conditions, the normalization of the database is considered complete.
 	
 	\section{Data Description}
-	All of the \verb|.csv| files are generated using the \verb|extract.py| script and some further manual tweaking on the data source files \verb|canvas.csv| and \verb|qa.csv|.
+	All of the \verb|.csv| files are generated using the \verb|extract.py| script and some further manual tweaking on the data source files \verb|canvas.csv| and \verb|qa.csv|. There may exist some slight differences in data due to manual corrections.\\
+	For a more graphical view, please see section 6 (``Data Diagram'').
 	\begin{center}
 		\begin{tabular}{c | c | l}
 			\toprule
@@ -150,7 +154,8 @@
 			\multicolumn{3}{c}{Defines all tags associated with posts in the Q\&A Corner.}\\
 			\midrule
 			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
-			\verb|| & \verb|| &  \\
+			\verb|post_id| & \verb|CHAR(10)| & The Q\&A post's ID. (FK$\to$qapost.id)\\
+			\verb|tag| & \verb|VARCHAR(32)| & A tag that the post contains.\\
 			\bottomrule
 		\end{tabular}\vspace{1.5em}
 			
@@ -160,7 +165,9 @@
 			\multicolumn{3}{c}{Defines all student-taking-class relationships, and their letter grades in Canvas.}\\
 			\midrule
 			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
-			&  &  \\
+			\verb|user_id| & \verb|CHAR(10)| & Student's personal ID. (PK, FK$\to$user.id) \\
+			\verb|class_id| & \verb|CHAR(10)| & Class's unique ID. (PK, FK$\to$class.id) \\
+			\verb|letter_grade| & \verb|VARCHAR(3)| & Letter grade the student obtained for class.\\
 			\bottomrule
 		\end{tabular}\vspace{1.5em}
 			
@@ -170,7 +177,9 @@
 			\multicolumn{3}{c}{Defines all student-completing-assignment relationships, and their numeric grades in Canvas.}\\
 			\midrule
 			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
-			&  &  \\
+			\verb|user_id| & \verb|CHAR(10)| & Student's personal ID. (PK, FK$\to$user.id) \\
+			\verb|assignment_id| & \verb|CHAR(10)| & Assignment's unique ID. (PK, FK$\to$assignment.id) \\
+			\verb|grade| & \verb|VARCHAR(4)| & Grade the student obtained on assignment. \\
 			\bottomrule
 		\end{tabular}\vspace{1.5em}
 	
@@ -180,15 +189,50 @@
 			\multicolumn{3}{c}{Defines all TA-assists-class relationships.}\\
 			\midrule
 			Attribute Name & Attribute Type & \multicolumn{1}{c}{Description} \\
-			&  &  \\
+			\verb|user_id| & \verb|CHAR(10)| & TA's personal ID. (PK, FK$\to$user.id)\\
+			\verb|class_id| & \verb|CHAR(10)| & ID of the class being assisted. (PK, FK$\to$class.id) \\
 			\bottomrule
 		\end{tabular}
 
 	\end{center}
+
+	\section{Data Diagram}
+	\includegraphics[scale=0.3]{canvas_db.png}
 	
-	\section{PHP File Directory}
+	\section{Project File Directory}
+	\begin{center}
+		\begin{tabular}{ r | l }
+			\toprule
+			\multicolumn{2}{c}{\textbf{File Directory}} \\
+			\midrule
+				\verb|cs377-course-project/| & Project root \\
+				\verb|index.php| & Login page (Q10) \\
+				\verb|home.php| & Home page (Q10) \\
+				\verb|view_course.php| & Course view page (Q7, Q8) \\
+				\verb|create_assignment.php| & Assignment creation page (Q8) \\
+				\verb|qa_posts.php| & Q\&A posts page (Q9) \\
+				\verb|view_thread.php| & Single post view page (Q9) \\
+				\verb|transcript.php| & Transcript view page (Q11) \\
+				\verb|helpers.php| & Helper functions file \\
+				\verb|logout.php| & Logout redirect page \\
+				\verb|README.txt| & Honor code file \\
+				\verb|er_diagram.png| & ER diagram used in Section 2 (``ER Design'')\\
+				\verb|canvas_db.png| & Database diagram used in Section 6 (``Data Diagram'')\\
+				\verb|extract.py| & Python extraction helper script \\
+				\verb|report.pdf| & This report \\
+				\verb|*.sql| & SQL database setup/teardown scripts \\
+				\verb|*.csv| & Table data files \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
 	
-	\section{Conclusion}
+	\section{Closing Remarks and Error Handling}
+	\begin{itemize}
+		\item My personal Google Cloud compute instance can be found at \url{http://jerry.games/377}.
+		\item Please, do \emph{not} run the \verb|extract.py| file. It will corrupt all exported \verb|csv| data. Feel free to take a look inside however.
+		\item There is a small chance that I have left my personal compute instance's address as a database connection argument. If you find your data failing to update on the local server, please navigate to the project root and execute \verb|sed -i 's/jerry.games/localhost/g' *| to replace all occurrences of \verb|jerry.games| with \verb|localhost|.
+		\item A lot of fields do not have error checking for apostrophes. Avoid entering apostrophes if errors occur.
+	\end{itemize}
 	
 	\clearpage
 	

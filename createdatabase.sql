@@ -27,6 +27,7 @@ create table class (
         primary key (id),
     constraint class_user_fk
         foreign key (lecturer_id) references user (id)
+        on update cascade
 );
 
 # Create assignment table
@@ -41,6 +42,7 @@ create table assignment (
         primary key (id),
     constraint assignment_class_fk
         foreign key (class_id) references class (id)
+        on update cascade
 );
 
 # Create qapost table
@@ -72,10 +74,10 @@ create table thread (
         primary key (id),
     constraint thread_user_fk
         foreign key (poster_id) references user (id)
-        on delete cascade on update cascade,
+        on update cascade,
     constraint thread_qapost_fk
         foreign key (parent_id) references qapost (id)
-        on delete cascade on update cascade
+        on update cascade
 );
 
 # Create tags table
@@ -86,7 +88,7 @@ create table tags (
         primary key (post_id, tag),
     constraint tags_qapost_fk
         foreign key (post_id) references qapost (id)
-        on delete cascade on update cascade
+        on update cascade
 );
 
 # Create takes table
@@ -98,10 +100,10 @@ create table takes (
         primary key (user_id, class_id),
     constraint takes_user_fk
         foreign key (user_id) references user (id)
-        on delete cascade on update cascade,
+        on update cascade,
     constraint takes_class_fk
         foreign key (class_id) references class (id)
-        on delete cascade on update cascade
+        on update cascade
 );
 
 # Create completes table
@@ -113,10 +115,10 @@ create table completes (
         primary key (user_id, assignment_id),
     constraint completes_user_fk
         foreign key (user_id) references user (id)
-        on delete cascade on update cascade,
+        on update cascade,
     constraint completes_assignment_fk
         foreign key (assignment_id) references assignment (id)
-        on delete cascade on update cascade
+        on update cascade
 );
 
 # Create assists table
@@ -126,7 +128,9 @@ create table assists (
     constraint assists_pk
         primary key (user_id, class_id),
     constraint assists_user_fk
-        foreign key (user_id) references user (id),
+        foreign key (user_id) references user (id)
+        on update cascade,
     constraint assists_class_fk
         foreign key (class_id) references class (id)
+        on update cascade
 );

@@ -85,7 +85,7 @@
             $assignments_id = array_map('take_first', $assignments);
             echo "<h2>$course_info[0] $course_info[1]<br>
                   <small class='text-muted'>$course_info[2] $course_info[3]</small></h2>";
-            echo "<table class='table table-bordered' style='text-align:center;'><thead><tr><th>Student Name</th><th>Student NetID</th>";
+            echo "<div style='overflow-x: auto;'><table class='table table-bordered table-responsive' style='text-align:center;'><thead><tr><th>Student Name</th><th>Student NetID</th>";
             foreach ($assignments as $index => $assignment) {
                 echo "<th>$assignment[1]</th>";
             }
@@ -109,7 +109,7 @@
                 if (strlen($letter_grade) == 1) echo "<td>N/A</td>"; else echo "<td>$letter_grade</td>";
                 echo "</tr>";
             }
-            echo "</tbody></table>";
+            echo "</tbody></table></div>";
             echo "<h2>Actions<br><small class='text-muted'>I'd like to...</small></h2><ul>";
             # Update grade on assignment
             echo "<li><form action='' method='post'><input type='hidden' name='operation' value='update_assignment_grade'/><input type='submit' value='Update'> student <select name='selected_student'>";

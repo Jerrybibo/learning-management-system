@@ -17,31 +17,36 @@
 <?php
     include "helpers.php";
     $course_id = $_SESSION['selected_course'];
+    $create_failure = false;
     if (!empty($_POST)) {
-        $_POST['details'] = str_replace("'", "''", $_POST['details']);
-        $sql_conn = connect('jerry.games', 'cs377', 'ma9BcF@Y', 'canvas_db');
-        $id_validate = 1;
-        $new_assignment_id = '';
-        # In case by miracle a random ID matches one in the database
-        while ($id_validate != 0) {
-            $new_assignment_id = gen_id();
-            $id_validate_query = "SELECT * FROM assignment a WHERE a.id = '" . $new_assignment_id . "';";
-            $result = query($sql_conn, $id_validate_query);
-            $id_validate = count(mysqli_fetch_all($result));
+        if (!empty($_POST['name']) && !empty($_POST['due_date']) && !empty($_POST['max_points'])) {
+            $_POST['details'] = str_replace("'", "''", $_POST['details']);
+            $sql_conn = connect('jerry.games', 'cs377', 'ma9BcF@Y', 'canvas_db');
+            $id_validate = 1;
+            $new_assignment_id = '';
+            # In case by miracle a random ID matches one in the database
+            while ($id_validate != 0) {
+                $new_assignment_id = gen_id();
+                $id_validate_query = "SELECT * FROM assignment a WHERE a.id = '" . $new_assignment_id . "';";
+                $result = query($sql_conn, $id_validate_query);
+                $id_validate = count(mysqli_fetch_all($result));
+            }
+            $create_assignment_query = "INSERT INTO assignment(id, name, due_date, description, points, class_id)
+                                        VALUES('$new_assignment_id', '$_POST[name]', '$_POST[due_date]', '$_POST[details]', '$_POST[max_points]', '$course_id');";
+            query($sql_conn, $create_assignment_query);
+            # Get user_id from class then Update completes with empty strings as values
+            foreach ($_SESSION['students_id'] as $k => $v) {
+                $update_completes_query = "INSERT INTO completes(user_id, assignment_id, grade)
+                                           VALUES('$v', '$new_assignment_id', ' ')";
+                query($sql_conn, $update_completes_query);
+            }
+            disconnect($sql_conn);
+            unset($_POST);
+            header("Location: view_course.php");
+            exit();
+        } else {
+            $create_failure = true;
         }
-        $create_assignment_query = "INSERT INTO assignment(id, name, due_date, description, points, class_id)
-                                    VALUES('$new_assignment_id', '$_POST[name]', '$_POST[due_date]', '$_POST[details]', '$_POST[max_points]', '$course_id');";
-        query($sql_conn, $create_assignment_query);
-        # Get user_id from class then Update completes with empty strings as values
-        foreach ($_SESSION['students_id'] as $k => $v) {
-            $update_completes_query = "INSERT INTO completes(user_id, assignment_id, grade)
-                                       VALUES('$v', '$new_assignment_id', ' ')";
-            query($sql_conn, $update_completes_query);
-        }
-        disconnect($sql_conn);
-        unset($_POST);
-        header("Location: view_course.php");
-        exit();
     }
     # Connect to DB
     $sql_conn = connect('jerry.games', 'cs377', 'ma9BcF@Y', 'canvas_db');
@@ -49,13 +54,15 @@
     $result = query($sql_conn, $course_info_query);
     $course_info = mysqli_fetch_all($result)[0];
     echo "<h2>$course_info[0] $course_info[1]<br>
-          <small class='text-muted'>$course_info[2] $course_info[3]</small></h2><form action='' method='post'>
+          <small class='text-muted'>$course_info[2] $course_info[3]</small></h2>";
+    if ($create_failure) echo "<p>Failed to create new assignment - Assignment name, due date, and max points cannot be empty. Please try again.</p>";
+    echo "<form action='' method='post'><div class='table-responsive'>
           <table class='table table-bordered' style='width:auto;'><thead style='text-align: center'><th colspan='2'>Create New Assignment</th></tr></thead><tbody>";
     echo "<tr><td style='text-align:right;'>Assignment Name</td><td><input name='name' type='text'/></td></tr>";
     echo "<tr><td style='text-align:right;'>Assignment Due Date</td><td><input name='due_date' type='datetime-local'/></td>";
     echo "<tr><td style='text-align:right;'>Maximum Points</td><td><input type='number' name='max_points' min='0' max='1000' value='0'></td>";
     echo "<tr><td style='text-align:right;'>Assignment Description</td><td><textarea name='details' rows='4' cols='40'></textarea></td>";
-    echo "</tbody></table><input type='submit' value='Create'></form><br>";
+    echo "</tbody></table></div><input type='submit' value='Create'></form><br>";
 
     # Free result and terminate SQL connection because we don't need more information
     mysqli_free_result($result);

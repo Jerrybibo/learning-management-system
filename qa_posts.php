@@ -84,8 +84,21 @@
                              FROM qapost p, user u WHERE p.poster_id = u.id AND p.class_id = '$applicable_course' ORDER BY p.post_date DESC;";
         $posts_list_result = query($sql_conn, $posts_list_query);
         $all_posts_list = mysqli_fetch_all($posts_list_result);
-        if (!empty($tag_filter)) echo "<p>Currently filtering using tag \"$tag_filter\"<br>To stop filtering, click the Filter button with a blank filter text field</p>";
-        echo "<form action='' method='post'>Enter a tag to filter by: <input type='text' name='tag_filter'/><input type='submit' value='Filter'></form>";
+        $tags_set = array();
+        foreach ($all_posts_list as $i => $post) {
+            $tags_query = "SELECT t.tag FROM tags t WHERE t.post_id = '$post[0]'";
+            $tags_list_raw = mysqli_fetch_all(query($sql_conn, $tags_query));
+            if (count($tags_list_raw) != 0) {
+                foreach ($tags_list_raw as $j => $k) {
+                    $tags_set[$k[0]] = 1;
+                }
+            }
+        }
+        if (!empty($tag_filter)) echo "<p>Currently filtering using tag \"" . trim($tag_filter) . "\"</p>";
+        echo "<form action='' method='post'>Select a tag to filter by: <select name='tag_filter'>";
+    echo "<option value=''>(No filter)</option>";
+        foreach ($tags_set as $tag => $is_set) echo "<option value='$tag'>$tag</option>";
+        echo "</select><input type='submit' value='Filter'></form>";
         echo '<table class="table table-bordered" style="text-align:center; width:auto; margin:20px">
                   <thead><th>Link</th><th>Post Title</th><th>Posted By</th><th>Posted On</th><th>Tags</th></thead><tbody>';
         foreach ($all_posts_list as $i => $post) {
