@@ -17,3 +17,6 @@ function query($conn_obj, $query) {
     }
     return $result;
 }
+function take_first($arr) {
+    return $arr[0];
+}

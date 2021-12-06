@@ -25,16 +25,17 @@
         $applicable_courses = $_SESSION['courses'];
         $all_posts_list = [];
         # List all the post titles, timestamps, and posters
-        $posts_list_query = "SELECT p.id, p.title, u.fname, u.lname, p.post_date FROM qapost p, user u WHERE p.poster_id = u.id AND p.class_id IN ('" . implode("','", $applicable_courses) . "');";
+        $posts_list_query = "SELECT p.id, p.title, u.fname, u.lname, p.post_date, c.course_no, c.semester, c.year
+                             FROM qapost p, user u, class c WHERE p.poster_id = u.id AND p.class_id = c.id AND p.class_id IN ('" . implode("','", $applicable_courses) . "');";
         $posts_list_result = query($sql_conn, $posts_list_query);
         $all_posts_list = mysqli_fetch_all($posts_list_result);
-        disconnect($sql_conn);
         echo '<table class="table table-bordered" style="text-align:center; width:auto; float:left; margin:20px">
-              <thead><th>Post ID</th><th>Post Title</th><th>Posted By</th><th>Posted On</th></thead><tbody>';
+                  <thead><th>Post ID</th><th>Post Title</th><th>Posted By</th><th>Posted On</th><th>Class</th><th>Term</th></thead><tbody>';
         foreach ($all_posts_list as $i => $post) {
-            echo "<tr><td>$post[0]</td><td>$post[1]</td><td>$post[2] " . "$post[3]</td><td>$post[4]</td></tr>";
+            echo "<tr><td>$post[0]</td><td>$post[1]</td><td>$post[2] " . "$post[3]</td><td>$post[4]</td><td>$post[5]</td><td>$post[6] $post[7]</td></tr>";
         }
         echo "</tbody></table>";
+        disconnect($sql_conn);
     ?>
         <!--Redirect to home page-->
         <p><input type="button" value="Back to Home" id="home_button" onClick="document.location.href='home.php'" /></p>
