@@ -17,7 +17,6 @@
 </head>
 <body class="d-flex justify-content-center">
 <div class="container m-4">
-    <h2>Q&A Corner</h2>
     <?php
         date_default_timezone_set('EST');
         include "helpers.php";
@@ -48,6 +47,10 @@
         $name_query = "SELECT u.fname, u.lname FROM user u WHERE u.id = '$id'";
         $result = query($sql_conn, $name_query);
         $full_name = mysqli_fetch_all($result)[0];
+        $course_info_query = "SELECT c.course_no, c.semester, c.year FROM class c WHERE c.id = '$_SESSION[qa_course]';";
+        $result = query($sql_conn, $course_info_query);
+        $course_info = mysqli_fetch_all($result)[0];
+        echo "<h2>Q&A Corner<br><small class='text-muted'>$course_info[0] $course_info[1] $course_info[2]</small></h2>";
         $post_query = "SELECT q.title, q.text, q.post_date, u.fname, u.lname FROM qapost q, user u WHERE q.poster_id = u.id AND q.id = '$post_id'";
         $result = query($sql_conn, $post_query);
         $post_result = mysqli_fetch_all($result)[0];
