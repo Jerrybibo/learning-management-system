@@ -15,8 +15,34 @@
 <body class="d-flex justify-content-center">
 <div class="container m-4">
     <h2>Academic Transcript</h2>
-    <?php ?>
-    <p>Work in progress!</p>
+    <?php
+    include 'helpers.php';
+    # Connect to DB
+    $sql_conn = connect('jerry.games', 'cs377', 'ma9BcF@Y', 'canvas_db');
+    # Fetch the user id from _SESSION
+    $id = $_SESSION['id'];
+    $name_query = "SELECT u.fname, u.lname, u.net_id FROM user u WHERE u.id = '$id'";
+    $result = query($sql_conn, $name_query);
+    $full_name = mysqli_fetch_all($result)[0];
+    # Get courses that the user is taking (as a student)
+    $taking_courses_query = "SELECT c.course_no, c.course_name, t.letter_grade, c.semester, c.year FROM user u, takes t, class c
+        WHERE u.id = t.user_id AND t.class_id = c.id AND u.id = '$id' ORDER BY c.year, c.semester DESC;";
+    $result = query($sql_conn, $taking_courses_query);
+    $taking_courses = mysqli_fetch_all($result);
+    $semester_organized_courses = array();
+    foreach ($taking_courses as $i => $course) {
+        $semester_organized_courses[$course[3] . ' ' . $course[4]][] = array($course[0], $course[1], $course[2]);
+    }
+    echo '<table class="table table-bordered" style="text-align:center; width:auto; float:left; margin:20px">';
+    echo "<thead><tr><th colspan='3'>Student $full_name[0] $full_name[1] - NetID $full_name[2]</th></tr></thead>";
+    foreach ($semester_organized_courses as $semester => $semester_courses) {
+        echo "<thead><tr><th colspan='3'>$semester</th></tr></thead><tbody>";
+        foreach ($semester_courses as $j => $course) {
+            echo "<tr><td>$course[0]</td><td>$course[1]</td><td>$course[2]</td></tr>";
+        }
+    }
+    echo '</tbody></table>';
+    ?>
     <!--Redirect to home page-->
     <p><input type="button" value="Back to Home" id="home_button" onClick="document.location.href='home.php'" /></p>
 </div>

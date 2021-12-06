@@ -119,10 +119,8 @@
         if ($total_courses_count == 0) {
             echo '<p>You\'re not enrolled in any classes! If this is unexpected, contact an administrator.</p>';
         }
+        if (count($taking_courses) > 0) echo "<p><input type='button' value='View Student Transcript' id='transcript_button' onClick=" . '"document.location.href='. "'transcript.php'" . '"/></p>';
     ?>
-        <!--View Student Transcript-->
-
-        <p><input type="button" value="View Student Transcript" id="transcript_button" onClick="document.location.href='transcript.php'" /></p>
         <!--Log out-->
         <p><input type="button" value="Log Out" id="logout_button" onClick="document.location.href='logout.php'" /></p>
 </div>
